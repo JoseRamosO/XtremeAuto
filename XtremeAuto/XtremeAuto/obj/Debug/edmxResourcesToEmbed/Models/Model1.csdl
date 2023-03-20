@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Profesion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cedula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_AspNetUsers_AspNetRoles_RoleId" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <NavigationProperty Name="RegistroMantenimiento" Relationship="Self.FK__RegistroM__IDCli__3D5E1FD2" FromRole="AspNetUsers" ToRole="RegistroMantenimiento" />
+    <NavigationProperty Name="RegistroMantenimiento1" Relationship="Self.FK__RegistroM__IDEmp__3F466844" FromRole="AspNetUsers" ToRole="RegistroMantenimiento" />
+    <NavigationProperty Name="Tarjeta" Relationship="Self.FK__Tarjeta__IDClien__37A5467C" FromRole="AspNetUsers" ToRole="Tarjeta" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IDCliente__4222D4EF" FromRole="AspNetUsers" ToRole="Venta" />
+    <NavigationProperty Name="Venta1" Relationship="Self.FK__Venta__IDEmplead__440B1D61" FromRole="AspNetUsers" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Carro">
+    <Key>
+      <PropertyRef Name="IDCarro" />
+    </Key>
+    <Property Name="IDCarro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Modelo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoRueda" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IDSeguro" Type="Int32" />
+    <NavigationProperty Name="Seguro" Relationship="Self.FK__Carro__IDSeguro__3A81B327" FromRole="Carro" ToRole="Seguro" />
+    <NavigationProperty Name="RegistroMantenimiento" Relationship="Self.FK__RegistroM__IDCar__3E52440B" FromRole="Carro" ToRole="RegistroMantenimiento" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__IDCarro__4316F928" FromRole="Carro" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="RegistroMantenimiento">
+    <Key>
+      <PropertyRef Name="IDRegistroMantenimiento" />
+    </Key>
+    <Property Name="IDRegistroMantenimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Costo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDCliente" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCarro" Type="Int32" Nullable="false" />
+    <Property Name="IDEmpleado" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__RegistroM__IDCli__3D5E1FD2" FromRole="RegistroMantenimiento" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK__RegistroM__IDEmp__3F466844" FromRole="RegistroMantenimiento" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Carro" Relationship="Self.FK__RegistroM__IDCar__3E52440B" FromRole="RegistroMantenimiento" ToRole="Carro" />
+  </EntityType>
+  <EntityType Name="Seguro">
+    <Key>
+      <PropertyRef Name="IDSeguro" />
+    </Key>
+    <Property Name="IDSeguro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoSeguro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plazo" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Carro" Relationship="Self.FK__Carro__IDSeguro__3A81B327" FromRole="Seguro" ToRole="Carro" />
+  </EntityType>
+  <EntityType Name="Tarjeta">
+    <Key>
+      <PropertyRef Name="IDTarjeta" />
+    </Key>
+    <Property Name="IDTarjeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CVV" Type="Int32" Nullable="false" />
+    <Property Name="NumeroTarjeta" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDCliente" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Tarjeta__IDClien__37A5467C" FromRole="Tarjeta" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Transaccion" Relationship="Self.FK__Transacci__IDTar__46E78A0C" FromRole="Tarjeta" ToRole="Transaccion" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="IDTransaccion" />
+    </Key>
+    <Property Name="IDTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDTarjeta" Type="Int32" Nullable="false" />
+    <Property Name="IDVenta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tarjeta" Relationship="Self.FK__Transacci__IDTar__46E78A0C" FromRole="Transaccion" ToRole="Tarjeta" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Transacci__IDVen__47DBAE45" FromRole="Transaccion" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="IDVenta" />
+    </Key>
+    <Property Name="IDVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Financiamiento" Type="Boolean" Nullable="false" />
+    <Property Name="Intereses" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Meses" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Aprobacion" Type="Boolean" Nullable="false" />
+    <Property Name="IDCliente" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCarro" Type="Int32" Nullable="false" />
+    <Property Name="IDEmpleado" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Venta__IDCliente__4222D4EF" FromRole="Venta" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK__Venta__IDEmplead__440B1D61" FromRole="Venta" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Carro" Relationship="Self.FK__Venta__IDCarro__4316F928" FromRole="Venta" ToRole="Carro" />
+    <NavigationProperty Name="Transaccion" Relationship="Self.FK__Transacci__IDVen__47DBAE45" FromRole="Venta" ToRole="Transaccion" />
+  </EntityType>
+  <Association Name="FK_AspNetUsers_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroM__IDCli__3D5E1FD2">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="RegistroMantenimiento" Type="Self.RegistroMantenimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroMantenimiento">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroM__IDEmp__3F466844">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="RegistroMantenimiento" Type="Self.RegistroMantenimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroMantenimiento">
+        <PropertyRef Name="IDEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tarjeta__IDClien__37A5467C">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Tarjeta" Type="Self.Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarjeta">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__IDCliente__4222D4EF">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__IDEmplead__440B1D61">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IDEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carro__IDSeguro__3A81B327">
+    <End Role="Seguro" Type="Self.Seguro" Multiplicity="0..1" />
+    <End Role="Carro" Type="Self.Carro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seguro">
+        <PropertyRef Name="IDSeguro" />
+      </Principal>
+      <Dependent Role="Carro">
+        <PropertyRef Name="IDSeguro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroM__IDCar__3E52440B">
+    <End Role="Carro" Type="Self.Carro" Multiplicity="1" />
+    <End Role="RegistroMantenimiento" Type="Self.RegistroMantenimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carro">
+        <PropertyRef Name="IDCarro" />
+      </Principal>
+      <Dependent Role="RegistroMantenimiento">
+        <PropertyRef Name="IDCarro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__IDCarro__4316F928">
+    <End Role="Carro" Type="Self.Carro" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carro">
+        <PropertyRef Name="IDCarro" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IDCarro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacci__IDTar__46E78A0C">
+    <End Role="Tarjeta" Type="Self.Tarjeta" Multiplicity="1" />
+    <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tarjeta">
+        <PropertyRef Name="IDTarjeta" />
+      </Principal>
+      <Dependent Role="Transaccion">
+        <PropertyRef Name="IDTarjeta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacci__IDVen__47DBAE45">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
+    <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IDVenta" />
+      </Principal>
+      <Dependent Role="Transaccion">
+        <PropertyRef Name="IDVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Carro" EntityType="Self.Carro" />
+    <EntitySet Name="RegistroMantenimiento" EntityType="Self.RegistroMantenimiento" />
+    <EntitySet Name="Seguro" EntityType="Self.Seguro" />
+    <EntitySet Name="Tarjeta" EntityType="Self.Tarjeta" />
+    <EntitySet Name="Transaccion" EntityType="Self.Transaccion" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" />
+    <AssociationSet Name="FK_AspNetUsers_AspNetRoles_RoleId" Association="Self.FK_AspNetUsers_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroM__IDCli__3D5E1FD2" Association="Self.FK__RegistroM__IDCli__3D5E1FD2">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="RegistroMantenimiento" EntitySet="RegistroMantenimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroM__IDEmp__3F466844" Association="Self.FK__RegistroM__IDEmp__3F466844">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="RegistroMantenimiento" EntitySet="RegistroMantenimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tarjeta__IDClien__37A5467C" Association="Self.FK__Tarjeta__IDClien__37A5467C">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Tarjeta" EntitySet="Tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__IDCliente__4222D4EF" Association="Self.FK__Venta__IDCliente__4222D4EF">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__IDEmplead__440B1D61" Association="Self.FK__Venta__IDEmplead__440B1D61">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carro__IDSeguro__3A81B327" Association="Self.FK__Carro__IDSeguro__3A81B327">
+      <End Role="Seguro" EntitySet="Seguro" />
+      <End Role="Carro" EntitySet="Carro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroM__IDCar__3E52440B" Association="Self.FK__RegistroM__IDCar__3E52440B">
+      <End Role="Carro" EntitySet="Carro" />
+      <End Role="RegistroMantenimiento" EntitySet="RegistroMantenimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__IDCarro__4316F928" Association="Self.FK__Venta__IDCarro__4316F928">
+      <End Role="Carro" EntitySet="Carro" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacci__IDTar__46E78A0C" Association="Self.FK__Transacci__IDTar__46E78A0C">
+      <End Role="Tarjeta" EntitySet="Tarjeta" />
+      <End Role="Transaccion" EntitySet="Transaccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacci__IDVen__47DBAE45" Association="Self.FK__Transacci__IDVen__47DBAE45">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="Transaccion" EntitySet="Transaccion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

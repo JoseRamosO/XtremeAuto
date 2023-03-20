@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fde6812eccc2432fb3f4c84e4d509104" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.AspNetUsers" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Carro" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.RegistroMantenimiento" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Seguro" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Tarjeta" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Transaccion" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Venta" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoModel.FK_AspNetUsers_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__RegistroM__IDCli__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__RegistroM__IDEmp__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Tarjeta__IDClien__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Venta__IDCliente__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Venta__IDEmplead__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Carro__IDSeguro__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__RegistroM__IDCar__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Venta__IDCarro__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Transacci__IDTar__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoModel.FK__Transacci__IDVen__47DBAE45" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

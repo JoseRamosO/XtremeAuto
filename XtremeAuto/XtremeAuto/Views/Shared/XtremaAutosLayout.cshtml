@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - XtremeAutos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("XtremeAutos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Users
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Usuarios", "Index", "AspNetUsers")
+                            <p />
+                            @Html.ActionLink("Crear Usuario", "Create", "AspNetUsers")
+                            <p />
+                            @Html.ActionLink("Detalles de Usuario", "Details", "AspNetUsers")
+                            <p />
+                            @Html.ActionLink("Eliminar Usario", "Delete", "AspNetUsers")
+                            <p />
+                            @Html.ActionLink("Editar Usuario", "Edit", "AspNetUsers")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Roles
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Roles", "Index", "AspNetRoles")
+                            <p />
+                            @Html.ActionLink("Crear Rol", "Create", "AspNetRoles")
+                            <p />
+                            @Html.ActionLink("Detalles de Rol", "Details", "AspNetRoles")
+                            <p />
+                            @Html.ActionLink("Eliminar Rol", "Delete", "AspNetRoles")
+                            <p />
+                            @Html.ActionLink("Editar Rol", "Edit", "AspNetRoles")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Carros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Carros", "Index", "Carro")
+                            <p />
+                            @Html.ActionLink("Crear Carro", "Create", "Carro")
+                            <p />
+                            @Html.ActionLink("Detalles de Carro", "Details", "Carro")
+                            <p />
+                            @Html.ActionLink("Eliminar Carro", "Delete", "Carro")
+                            <p />
+                            @Html.ActionLink("Editar Carro", "Edit", "Carro")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mantenimientos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Registros de Mantenimiento", "Index", "RegistroMantenimiento")
+                            <p />
+                            @Html.ActionLink("Crear Matenimiento", "Create", "RegistroMantenimiento")
+                            <p />
+                            @Html.ActionLink("Detalles de Mantenimiento", "Details", "RegistroMantenimiento")
+                            <p />
+                            @Html.ActionLink("Eliminar Mantenimiento", "Delete", "RegistroMantenimiento")
+                            <p />
+                            @Html.ActionLink("Editar Registro deMantenimiento", "Edit", "RegistroMantenimiento")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Seguros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Seguros", "Index", "Seguro")
+                            <p />
+                            @Html.ActionLink("Crear Seguro", "Create", "Seguro")
+                            <p />
+                            @Html.ActionLink("Detalles de Seguro", "Details", "Seguro")
+                            <p />
+                            @Html.ActionLink("Eliminar Seguro", "Delete", "Seguro")
+                            <p />
+                            @Html.ActionLink("Editar Seguro", "Edit", "Seguro")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Transacciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Transacciones", "Index", "Transaccion")
+                            <p />
+                            @Html.ActionLink("Crear Transaccion", "Create", "Transaccion")
+                            <p />
+                            @Html.ActionLink("Detalles de Transaccion", "Details", "Transaccion")
+                            <p />
+                            @Html.ActionLink("Eliminar Transaccion", "Delete", "Transaccion")
+                            <p />
+                            @Html.ActionLink("Editar Transaccion", "Edit", "Transaccion")
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ventas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <p />
+                            @Html.ActionLink("Lista de Ventas", "Index", "Venta")
+                            <p />
+                            @Html.ActionLink("Crear Venta", "Create", "Venta")
+                            <p />
+                            @Html.ActionLink("Detalles de Venta", "Details", "Venta")
+                            <p />
+                            @Html.ActionLink("Eliminar Venta", "Delete", "Venta")
+                            <p />
+                            @Html.ActionLink("Editar Venta", "Edit", "Venta")
+                        </div>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
